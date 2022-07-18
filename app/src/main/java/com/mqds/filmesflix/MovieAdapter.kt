@@ -1,19 +1,25 @@
 package com.mqds.filmesflix
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.mqds.filmesflix.databinding.MovieItemLayoutBinding
 import com.mqds.filmesflix.model.Movie
 
 
-class MovieAdapter: RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    private lateinit var movies: MutableList<Movie>
+class MovieAdapter(private val moviesList: List<Movie>): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+    //private lateinit var movies: MutableList<Movie>
 
     inner class MovieViewHolder(private val view: MovieItemLayoutBinding): RecyclerView.ViewHolder(view.root){
         fun bind(movie: Movie){
-            view.movieTitle.text = movie.title;
+            view.apply {
+                movieTitle.text = movie.title;
+                movieImage.load(movie.image){
+                    placeholder(R.drawable.ic_placeholder_24)
+                    fallback(R.drawable.ic_placeholder_24)
+                }
+            }
         }
     }
 
@@ -26,9 +32,9 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MovieAdapter.MovieViewHolder, position: Int) {
-        holder.bind(movies.get(position))
+        holder.bind(moviesList.get(position))
     }
 
-    override fun getItemCount() = movies.size
+    override fun getItemCount() = moviesList.size
 
 }
