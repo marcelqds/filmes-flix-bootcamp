@@ -2,48 +2,35 @@ package com.mqds.filmesflix
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.mqds.filmesflix.databinding.ActivityMainBinding
 import com.mqds.filmesflix.model.Movie
+import com.mqds.filmesflix.viewmodel.MovieListViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding;
-    private val listOfMoveis = arrayListOf(
-        Movie(
-            id = 0,
-            title = "Titanic",
-            description = null,
-            image = "",
-            lauchDate = null
-        ),
-
-        Movie(
-            id = 1,
-            title = "Central do Brasil",
-            description = null,
-            image = "",
-            lauchDate = null
-        ),
-        Movie(
-            id = 2,
-            title = "Carandiru",
-            description = null,
-            image = "",
-            lauchDate = null
-        )
-    )
+    private lateinit var movieListViewModel: MovieListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        populateList()
+        movieListViewModel = ViewModelProvider.NewInstanceFactory().create(MovieListViewModel::class.java)
+        movieListViewModel.init()
+        initObserver()
     }
 
-    private fun populateList(){
+    private fun initObserver(){
+        movieListViewModel.moviesList.observe(this, Observer { list ->
+            populateList(list)
+        })
+    }
+
+    private fun populateList(movies: List<Movie>){
         binding.moviesList.apply {
             hasFixedSize()
-            adapter = MovieAdapter(listOfMoveis)
+            adapter = MovieAdapter(movies)
         }
     }
 }
