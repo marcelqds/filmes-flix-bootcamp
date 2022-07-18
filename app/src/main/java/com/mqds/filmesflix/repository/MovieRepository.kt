@@ -2,7 +2,7 @@ package com.mqds.filmesflix.repository
 
 import android.util.Log
 import com.mqds.filmesflix.api.MovieRestApiTask
-import com.mqds.filmesflix.model.Movie
+import com.mqds.filmesflix.domain.Movie
 
 class MovieRepository(private val movieRestApiTask: MovieRestApiTask){
     companion object{

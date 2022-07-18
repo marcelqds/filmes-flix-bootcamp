@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mqds.filmesflix.databinding.MovieItemLayoutBinding
-import com.mqds.filmesflix.model.Movie
+import com.mqds.filmesflix.domain.Movie
 
 
 class MovieAdapter(private val moviesList: List<Movie>): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {

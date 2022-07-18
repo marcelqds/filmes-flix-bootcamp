@@ -6,7 +6,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mqds.filmesflix.databinding.ActivityMainBinding
-import com.mqds.filmesflix.model.Movie
+import com.mqds.filmesflix.domain.Movie
 import com.mqds.filmesflix.viewmodel.MovieListViewModel
 
 class MainActivity : AppCompatActivity() {

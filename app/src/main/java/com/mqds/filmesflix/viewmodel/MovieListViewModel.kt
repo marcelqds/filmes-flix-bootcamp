@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mqds.filmesflix.api.MovieRestApiTask
-import com.mqds.filmesflix.model.Movie
+import com.mqds.filmesflix.domain.Movie
 import com.mqds.filmesflix.repository.MovieRepository
 import java.lang.Exception
 

@@ -1,6 +1,6 @@
 package com.mqds.filmesflix.api
 
-import com.mqds.filmesflix.model.Movie
+import com.mqds.filmesflix.domain.Movie
 import retrofit2.Call
 import retrofit2.http.GET
 

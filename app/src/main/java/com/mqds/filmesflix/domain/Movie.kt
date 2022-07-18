@@ -1,4 +1,4 @@
-package com.mqds.filmesflix.model
+package com.mqds.filmesflix.domain
 
 data class Movie(
     val id: Int,
