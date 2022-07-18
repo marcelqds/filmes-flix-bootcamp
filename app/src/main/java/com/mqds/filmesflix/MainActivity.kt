@@ -2,6 +2,7 @@ package com.mqds.filmesflix
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mqds.filmesflix.databinding.ActivityMainBinding
@@ -19,11 +20,16 @@ class MainActivity : AppCompatActivity() {
         movieListViewModel = ViewModelProvider.NewInstanceFactory().create(MovieListViewModel::class.java)
         movieListViewModel.init()
         initObserver()
+        loadingVisibility(true)
     }
 
     private fun initObserver(){
         movieListViewModel.moviesList.observe(this, Observer { list ->
-            populateList(list)
+            if(list.isNotEmpty()){
+                populateList(list)
+                loadingVisibility(false)
+            }
+
         })
     }
 
@@ -32,5 +38,9 @@ class MainActivity : AppCompatActivity() {
             hasFixedSize()
             adapter = MovieAdapter(movies)
         }
+    }
+
+    private fun loadingVisibility(isLoading: Boolean){
+        binding.progressBar.visibility = if(isLoading) View.VISIBLE else View.GONE
     }
 }
