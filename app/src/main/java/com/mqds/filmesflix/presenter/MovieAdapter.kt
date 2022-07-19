@@ -1,9 +1,10 @@
-package com.mqds.filmesflix
+package com.mqds.filmesflix.presenter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.mqds.filmesflix.R
 import com.mqds.filmesflix.databinding.MovieItemLayoutBinding
 import com.mqds.filmesflix.domain.Movie
 
@@ -26,12 +27,12 @@ class MovieAdapter(private val moviesList: List<Movie>): RecyclerView.Adapter<Mo
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MovieAdapter.MovieViewHolder {
+    ): MovieViewHolder {
         val view = MovieItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return MovieViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieAdapter.MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bind(moviesList.get(position))
     }
 

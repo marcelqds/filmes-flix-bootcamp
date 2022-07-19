@@ -1,4 +1,4 @@
-package com.mqds.filmesflix
+package com.mqds.filmesflix.presenter
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mqds.filmesflix.databinding.ActivityMainBinding
 import com.mqds.filmesflix.domain.Movie
-import com.mqds.filmesflix.viewmodel.MovieListViewModel
+import com.mqds.filmesflix.framework.viewmodel.MovieListViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding;

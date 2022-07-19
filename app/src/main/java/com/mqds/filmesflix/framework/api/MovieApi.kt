@@ -1,4 +1,4 @@
-package com.mqds.filmesflix.api
+package com.mqds.filmesflix.framework.api
 
 import com.mqds.filmesflix.domain.Movie
 import retrofit2.Call

@@ -1,7 +1,7 @@
 package com.mqds.filmesflix.data
 
-import com.mqds.filmesflix.api.MovieApi
+import com.mqds.filmesflix.domain.Movie
 
 interface MovieDataSource {
-    fun getAllMovies(): List<MovieApi>
+    fun getAllMovies(): List<Movie>
 }
